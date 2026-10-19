@@ -1,0 +1,6 @@
+interface:
+  display_name: "Thermos"
+  short_description: "Parallel deep review and code-quality review with one merged verdict"
+  default_prompt: "Use $thermos to review this branch."
+policy:
+  allow_implicit_invocation: false

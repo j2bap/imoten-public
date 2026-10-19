@@ -1,0 +1,26 @@
+{
+  "name": "imoten",
+  "version": "0.2.0",
+  "private": true,
+  "description": "Verification entry point for Imoten",
+  "type": "module",
+  "scripts": {
+    "test": "npm run verify:release",
+    "test:offline": "node --test $(find tests -maxdepth 1 -name '*.test.mjs' ! -name 'installed-plugin-smoke.test.mjs' | sort)",
+    "test:bun": "bun test --cwd skills/poteto-mode/scripts check-plan orch watch-pr",
+    "typecheck": "bun run --cwd skills/poteto-mode/scripts typecheck",
+    "compatibility:check": "node scripts/generate-compatibility-report.mjs --check && for d in compatibility/plugins/*/; do node scripts/generate-compatibility-report.mjs --check --lock \"${d}upstream.lock.json\" --map \"${d}map.json\" --output \"${d}report.md\" || exit 1; done",
+    "hillclimb:compare": "node evals/compare-hillclimb.mjs",
+    "plugin:sync": "node scripts/sync-local-plugin.mjs",
+    "plugin:sync:check": "node scripts/sync-local-plugin.mjs --dry-run",
+    "upstream:review": "node scripts/review-upstream.mjs",
+    "tracen": "npm run verify:offline",
+    "verify": "npm run verify:offline",
+    "verify:offline": "npm run test:offline && npm run test:bun && npm run typecheck && npm run compatibility:check",
+    "verify:release": "npm run verify:offline && npm run test:installed",
+    "test:installed": "IMOTEN_RUN_INSTALLED_SMOKE=1 node --test tests/installed-plugin-smoke.test.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

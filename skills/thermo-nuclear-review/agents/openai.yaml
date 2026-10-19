@@ -1,0 +1,6 @@
+interface:
+  display_name: "Thermo-Nuclear Deep Review"
+  short_description: "Deep diff audit for bugs, breakage, security, devex, and feature leaks"
+  default_prompt: "Use $thermo-nuclear-review to audit this branch."
+policy:
+  allow_implicit_invocation: false

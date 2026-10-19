@@ -1,0 +1,36 @@
+{
+  "date": "2026-09-19",
+  "profile": "~/.codex-personal",
+  "model": "gpt-5.6-luna",
+  "transport": "app-server",
+  "remote_compaction": true,
+  "status": "completed",
+  "turns": [
+    {
+      "prompt_mode": "full",
+      "status": "completed",
+      "elapsed_ms": 5341,
+      "first_token_ms": 5209,
+      "input_tokens": 17581,
+      "cached_input_tokens": 0,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 23,
+      "reasoning_output_tokens": 15
+    },
+    {
+      "prompt_mode": "suffix",
+      "status": "completed",
+      "elapsed_ms": 1953,
+      "first_token_ms": 1808,
+      "input_tokens": 20086,
+      "cached_input_tokens": 17152,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 17,
+      "reasoning_output_tokens": 9
+    }
+  ],
+  "ledger_events": 6,
+  "compaction_items": 0,
+  "encrypted_payload_errors": 0,
+  "note": "One bounded host canary. This is directional evidence, not a rollout sample."
+}

@@ -1,0 +1,6 @@
+name = "imoten-poteto-agent"
+description = "Poteto-mode delegate for deliberate engineering workflows. Use one delegate per independent lane, with at most two in flight, and continue it rather than spawning a duplicate."
+{{MODEL_CONFIG}}
+developer_instructions = """
+{{PROMPT}}
+"""

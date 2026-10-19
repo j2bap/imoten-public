@@ -1,0 +1,766 @@
+{
+  "metadata": {
+    "model": "gpt-6-astra",
+    "effort": "low",
+    "source_commit": "8467888ffcc5758ddb11d46e96bd9aaccd175d0d",
+    "source_sha256": {
+      "skills/setup-pstack/scripts/imoten-profile.mjs": "5617a41b3e27341374533027ce13010ee4cf0b8e6eadca3b264b3a5b8254fa7a",
+      "skills/setup-pstack/scripts/context-manager.mjs": "51bbe74ecba8db31a394933266bdbfa427f3f3e96c9eeb90b00778cb06e06316",
+      "skills/poteto-mode/scripts/classifier-decision-adapter.mjs": "efb02c249a69d87ea7e9ad21e360d7ca19348a32572d7850068b0e3eb2601ca1",
+      "skills/poteto-mode/scripts/read-stdin.mjs": "d48026a6225ffcc9f88e70727787273701adb9e0c4af937d7706d55193ea1023"
+    },
+    "setup_ms": 3.637875000000001,
+    "tasks": [
+      {
+        "id": "identity",
+        "file": "skills/setup-pstack/scripts/imoten-profile.mjs",
+        "symbol": "parseCodexIdentity",
+        "cases": [
+          [
+            "model = \"gpt-6-astra\"\nmodel_reasoning_effort = \"low\""
+          ],
+          [
+            "model_provider = 'native'\n[profiles.other]\nmodel=\"ignored\""
+          ],
+          [
+            "model = first\nmodel = second\nunknown = value"
+          ],
+          [
+            "default_permissions = \"read-only\"\napprovals_reviewer = \"auto_review\""
+          ],
+          [
+            "model = unquoted # comment\nmodel_catalog_json = '/tmp/catalog.json'"
+          ]
+        ]
+      },
+      {
+        "id": "classifier",
+        "file": "skills/poteto-mode/scripts/classifier-decision-adapter.mjs",
+        "symbol": "adaptClassifierResult",
+        "cases": [
+          [
+            {
+              "state": {
+                "id": 1
+              },
+              "question": {
+                "type": "choice",
+                "criteria": [
+                  "spawn",
+                  "no_match"
+                ]
+              },
+              "result": {
+                "results": [
+                  {
+                    "label": "spawn",
+                    "confidence": 0.8,
+                    "scores": {
+                      "spawn": 0.8,
+                      "no_match": 0.2
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          [
+            {
+              "state": null,
+              "question": {
+                "type": "noul"
+              },
+              "result": {
+                "model": "small",
+                "results": [
+                  {
+                    "label": "yes",
+                    "confidence": 0.9,
+                    "scores": {
+                      "yes": 0.75,
+                      "no": 0.25
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          [
+            {
+              "state": "s",
+              "question": {
+                "type": "score",
+                "criteria": [
+                  "low",
+                  "medium",
+                  "high",
+                  "no_match"
+                ]
+              },
+              "result": {
+                "results": [
+                  {
+                    "label": "medium",
+                    "confidence": 0.6,
+                    "scores": {
+                      "low": 0.2,
+                      "medium": 0.6,
+                      "high": 0.2
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          [
+            {
+              "state": 0,
+              "question": {
+                "type": "noul"
+              },
+              "result": {
+                "results": [
+                  {
+                    "label": "yes",
+                    "confidence": 0.9,
+                    "scores": {
+                      "yes": 0.9,
+                      "no": 0.9
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          [
+            {
+              "state": 0,
+              "question": {
+                "type": "noul"
+              },
+              "result": {
+                "results": [
+                  {
+                    "label": "maybe",
+                    "confidence": 0.9,
+                    "scores": {
+                      "yes": 0.5,
+                      "no": 0.5
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        ]
+      },
+      {
+        "id": "gate",
+        "file": "skills/setup-pstack/scripts/context-manager.mjs",
+        "symbol": "evaluateSubagentGate",
+        "cases": [
+          [
+            {
+              "packet": {
+                "id": "audit",
+                "objective": "Check safe scheduling",
+                "inputBundles": [],
+                "allowedPaths": [
+                  "src/a"
+                ],
+                "writeMode": "read_only",
+                "expectedResult": "answer",
+                "deadlineMs": 1000
+              },
+              "classifier": {
+                "provider": "classifier.dev",
+                "label": "spawn",
+                "confidence": 0.95
+              }
+            }
+          ],
+          [
+            {
+              "packet": {
+                "id": "audit",
+                "objective": "Check safe scheduling",
+                "inputBundles": [],
+                "allowedPaths": [
+                  "src/a"
+                ],
+                "writeMode": "read_only",
+                "expectedResult": "answer",
+                "deadlineMs": 1000
+              },
+              "classifier": {
+                "provider": "classifier.dev",
+                "label": "spawn",
+                "confidence": 0.79
+              }
+            }
+          ],
+          [
+            {
+              "packet": {
+                "id": "audit",
+                "objective": "Check safe scheduling",
+                "inputBundles": [],
+                "allowedPaths": [
+                  "src/a"
+                ],
+                "writeMode": "read_only",
+                "expectedResult": "answer",
+                "deadlineMs": 1000
+              },
+              "classifier": {
+                "provider": "classifier.dev",
+                "label": "spawn",
+                "confidence": 0.95
+              },
+              "compaction": "sealed",
+              "openDependencyCount": 1
+            }
+          ],
+          [
+            {
+              "packet": {
+                "id": "audit",
+                "objective": "Check safe scheduling",
+                "inputBundles": [],
+                "allowedPaths": [
+                  "src/a"
+                ],
+                "writeMode": "isolated_write",
+                "expectedResult": "answer",
+                "deadlineMs": 1000
+              },
+              "sharedMutablePaths": [
+                "src/a"
+              ],
+              "classifier": {
+                "provider": "classifier.dev",
+                "label": "spawn",
+                "confidence": 0.95
+              }
+            }
+          ],
+          [
+            {
+              "packet": {
+                "id": "audit",
+                "objective": "Check safe scheduling",
+                "inputBundles": [],
+                "allowedPaths": [
+                  "src/a"
+                ],
+                "writeMode": "read_only",
+                "expectedResult": "answer",
+                "deadlineMs": 1000,
+                "extra": true
+              },
+              "classifier": {
+                "provider": "classifier.dev",
+                "label": "spawn",
+                "confidence": 0.95
+              }
+            }
+          ],
+          [
+            {
+              "packet": {
+                "id": "audit",
+                "objective": "Check safe scheduling",
+                "inputBundles": [],
+                "allowedPaths": [
+                  "src/a"
+                ],
+                "writeMode": "read_only",
+                "expectedResult": "answer",
+                "deadlineMs": 1000
+              },
+              "classifier": {
+                "provider": "unknown",
+                "label": "spawn",
+                "confidence": 0.95
+              }
+            }
+          ]
+        ]
+      },
+      {
+        "id": "request",
+        "file": "skills/poteto-mode/scripts/classifier-decision-adapter.mjs",
+        "symbol": "buildClassifierRequest",
+        "cases": [
+          [
+            {
+              "type": "choice",
+              "criteria": {
+                "spawn": "Independent",
+                "no_match": "Unclear"
+              },
+              "instructions": "Choose safely."
+            },
+            {
+              "input": "Read two modules"
+            }
+          ],
+          [
+            {
+              "type": "score",
+              "criteria": [
+                "low",
+                "high",
+                "no_match"
+              ]
+            },
+            {
+              "input": "Assess risk",
+              "tier": "smart"
+            }
+          ],
+          [
+            {
+              "type": "noul"
+            },
+            {
+              "input": "Ready?"
+            }
+          ],
+          [
+            {
+              "type": "choice",
+              "criteria": [
+                "a",
+                "a"
+              ]
+            },
+            {
+              "input": "duplicate"
+            }
+          ],
+          [
+            {
+              "type": "noul"
+            },
+            {
+              "input": "x",
+              "tier": "invalid"
+            }
+          ]
+        ]
+      }
+    ],
+    "trials": 5,
+    "timeout_ms": 180000
+  },
+  "raw_results": ".audit/scheduling-real-tasks-2026-10-02/results.json",
+  "model_identity": "Requested native gpt-6-astra with low effort. Ready receipts echo requested model; no independent served-model or effort receipt is retained.",
+  "usage_limit": "The adapter replaces usage with tokenUsage.last on each update. These counters are not proved complete accumulated usage or billing cost.",
+  "scorer_amendment": "The native adapter joins commentary and final output. Parse the final JSON object at a line boundary identically in every arm. Preserve original strict aggregate-text result. Assembly and re-scoring happen after the experiment and their time is reported separately.",
+  "rows": [
+    {
+      "fixture": 0,
+      "trial": 0,
+      "order": [
+        "parent",
+        "parallel"
+      ],
+      "parent": {
+        "wall_ms": 84903.191375,
+        "assembly_ms": 0.05854099999999818,
+        "correct": true,
+        "strict_aggregate_text_json": false,
+        "usage": {
+          "input_tokens": 25813,
+          "cached_input_tokens": 24704,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 447,
+          "reasoning_output_tokens": 0,
+          "total_tokens": 26260
+        }
+      },
+      "parallel": {
+        "wall_ms": 66487.81854099999,
+        "assembly_ms": 0.08783400000000086,
+        "correct": true,
+        "strict_aggregate_text_json": false,
+        "usage": {
+          "input_tokens": 44696,
+          "cached_input_tokens": 43264,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 452,
+          "reasoning_output_tokens": 0,
+          "total_tokens": 45148
+        }
+      }
+    },
+    {
+      "fixture": 0,
+      "trial": 1,
+      "order": [
+        "parallel",
+        "parent"
+      ],
+      "parent": {
+        "wall_ms": 86832.71437499998,
+        "assembly_ms": 0.047584000000000515,
+        "correct": true,
+        "strict_aggregate_text_json": false,
+        "usage": {
+          "input_tokens": 25857,
+          "cached_input_tokens": 24704,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 447,
+          "reasoning_output_tokens": 0,
+          "total_tokens": 26304
+        }
+      },
+      "parallel": {
+        "wall_ms": 64067.785917,
+        "assembly_ms": 0.04120900000000205,
+        "correct": true,
+        "strict_aggregate_text_json": false,
+        "usage": {
+          "input_tokens": 44691,
+          "cached_input_tokens": 43264,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 452,
+          "reasoning_output_tokens": 0,
+          "total_tokens": 45143
+        }
+      }
+    },
+    {
+      "fixture": 0,
+      "trial": 2,
+      "order": [
+        "parent",
+        "parallel"
+      ],
+      "parent": {
+        "wall_ms": 86239.509333,
+        "assembly_ms": 0.048709000000002334,
+        "correct": true,
+        "strict_aggregate_text_json": false,
+        "usage": {
+          "input_tokens": 25852,
+          "cached_input_tokens": 24704,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 447,
+          "reasoning_output_tokens": 0,
+          "total_tokens": 26299
+        }
+      },
+      "parallel": {
+        "wall_ms": 70618.902833,
+        "assembly_ms": 0.03625000000000256,
+        "correct": true,
+        "strict_aggregate_text_json": false,
+        "usage": {
+          "input_tokens": 44701,
+          "cached_input_tokens": 43264,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 452,
+          "reasoning_output_tokens": 0,
+          "total_tokens": 45153
+        }
+      }
+    },
+    {
+      "fixture": 0,
+      "trial": 3,
+      "order": [
+        "parallel",
+        "parent"
+      ],
+      "parent": {
+        "wall_ms": 85727.00579099997,
+        "assembly_ms": 0.031500000000001194,
+        "correct": true,
+        "strict_aggregate_text_json": false,
+        "usage": {
+          "input_tokens": 25233,
+          "cached_input_tokens": 24064,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 447,
+          "reasoning_output_tokens": 0,
+          "total_tokens": 25680
+        }
+      },
+      "parallel": {
+        "wall_ms": 72441.82412499998,
+        "assembly_ms": 0.03437500000000426,
+        "correct": true,
+        "strict_aggregate_text_json": false,
+        "usage": {
+          "input_tokens": 44715,
+          "cached_input_tokens": 43264,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 452,
+          "reasoning_output_tokens": 0,
+          "total_tokens": 45167
+        }
+      }
+    },
+    {
+      "fixture": 0,
+      "trial": 4,
+      "order": [
+        "parent",
+        "parallel"
+      ],
+      "parent": {
+        "wall_ms": 85401.54741699994,
+        "assembly_ms": 0.025292000000000314,
+        "correct": true,
+        "strict_aggregate_text_json": false,
+        "usage": {
+          "input_tokens": 25827,
+          "cached_input_tokens": 24576,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 447,
+          "reasoning_output_tokens": 0,
+          "total_tokens": 26274
+        }
+      },
+      "parallel": {
+        "wall_ms": 65764.37137499999,
+        "assembly_ms": 0.036625000000000796,
+        "correct": true,
+        "strict_aggregate_text_json": false,
+        "usage": {
+          "input_tokens": 44700,
+          "cached_input_tokens": 43264,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 452,
+          "reasoning_output_tokens": 0,
+          "total_tokens": 45152
+        }
+      }
+    },
+    {
+      "fixture": 1,
+      "trial": 0,
+      "order": [
+        "parent",
+        "parallel"
+      ],
+      "parent": {
+        "wall_ms": 75014.40812499996,
+        "assembly_ms": 0.04641600000000068,
+        "correct": true,
+        "strict_aggregate_text_json": false,
+        "usage": {
+          "input_tokens": 31054,
+          "cached_input_tokens": 29952,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 358,
+          "reasoning_output_tokens": 0,
+          "total_tokens": 31412
+        }
+      },
+      "parallel": {
+        "wall_ms": 53972.88854199997,
+        "assembly_ms": 0.02195800000000503,
+        "correct": true,
+        "strict_aggregate_text_json": false,
+        "usage": {
+          "input_tokens": 49899,
+          "cached_input_tokens": 48512,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 363,
+          "reasoning_output_tokens": 0,
+          "total_tokens": 50262
+        }
+      }
+    },
+    {
+      "fixture": 1,
+      "trial": 1,
+      "order": [
+        "parallel",
+        "parent"
+      ],
+      "parent": {
+        "wall_ms": 76410.40950000007,
+        "assembly_ms": 0.020166000000003237,
+        "correct": true,
+        "strict_aggregate_text_json": false,
+        "usage": {
+          "input_tokens": 31064,
+          "cached_input_tokens": 29952,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 358,
+          "reasoning_output_tokens": 0,
+          "total_tokens": 31422
+        }
+      },
+      "parallel": {
+        "wall_ms": 61108.46395799995,
+        "assembly_ms": 0.029167000000001053,
+        "correct": true,
+        "strict_aggregate_text_json": false,
+        "usage": {
+          "input_tokens": 49902,
+          "cached_input_tokens": 48512,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 363,
+          "reasoning_output_tokens": 0,
+          "total_tokens": 50265
+        }
+      }
+    },
+    {
+      "fixture": 1,
+      "trial": 2,
+      "order": [
+        "parent",
+        "parallel"
+      ],
+      "parent": {
+        "wall_ms": 81470.89491700009,
+        "assembly_ms": 0.03612499999999841,
+        "correct": true,
+        "strict_aggregate_text_json": false,
+        "usage": {
+          "input_tokens": 29805,
+          "cached_input_tokens": 28672,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 358,
+          "reasoning_output_tokens": 0,
+          "total_tokens": 30163
+        }
+      },
+      "parallel": {
+        "wall_ms": 67056.87708400004,
+        "assembly_ms": 0.031041999999999348,
+        "correct": true,
+        "strict_aggregate_text_json": false,
+        "usage": {
+          "input_tokens": 49901,
+          "cached_input_tokens": 48512,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 363,
+          "reasoning_output_tokens": 0,
+          "total_tokens": 50264
+        }
+      }
+    },
+    {
+      "fixture": 1,
+      "trial": 3,
+      "order": [
+        "parallel",
+        "parent"
+      ],
+      "parent": {
+        "wall_ms": 73368.14245799999,
+        "assembly_ms": 0.02012500000000017,
+        "correct": true,
+        "strict_aggregate_text_json": false,
+        "usage": {
+          "input_tokens": 31047,
+          "cached_input_tokens": 29952,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 358,
+          "reasoning_output_tokens": 0,
+          "total_tokens": 31405
+        }
+      },
+      "parallel": {
+        "wall_ms": 57606.678083000006,
+        "assembly_ms": 0.02520799999999923,
+        "correct": true,
+        "strict_aggregate_text_json": false,
+        "usage": {
+          "input_tokens": 49914,
+          "cached_input_tokens": 48512,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 363,
+          "reasoning_output_tokens": 0,
+          "total_tokens": 50277
+        }
+      }
+    },
+    {
+      "fixture": 1,
+      "trial": 4,
+      "order": [
+        "parent",
+        "parallel"
+      ],
+      "parent": {
+        "wall_ms": 78934.04970799992,
+        "assembly_ms": 0.025583999999994944,
+        "correct": true,
+        "strict_aggregate_text_json": false,
+        "usage": {
+          "input_tokens": 31058,
+          "cached_input_tokens": 29952,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 358,
+          "reasoning_output_tokens": 0,
+          "total_tokens": 31416
+        }
+      },
+      "parallel": {
+        "wall_ms": 52468.08449999988,
+        "assembly_ms": 0.026499999999998636,
+        "correct": true,
+        "strict_aggregate_text_json": false,
+        "usage": {
+          "input_tokens": 49921,
+          "cached_input_tokens": 48512,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 363,
+          "reasoning_output_tokens": 0,
+          "total_tokens": 50284
+        }
+      }
+    }
+  ],
+  "summary": {
+    "pairs": 10,
+    "parent_median_ms": 83187.04314600004,
+    "parallel_median_ms": 64916.078645999994,
+    "median_reduction_percent": 21.9637143105724,
+    "faster_pairs": 10,
+    "correct_arms": 20,
+    "total_arms": 20,
+    "usage": {
+      "parent": {
+        "input_tokens": 282610,
+        "cached_input_tokens": 271232,
+        "output_tokens": 4025,
+        "total_tokens": 286635,
+        "uncached_input_tokens": 11378
+      },
+      "parallel": {
+        "input_tokens": 473040,
+        "cached_input_tokens": 458880,
+        "output_tokens": 4075,
+        "total_tokens": 477115,
+        "uncached_input_tokens": 14160
+      }
+    },
+    "paired_reduction_range_percent": [
+      15.497078829965073,
+      33.529212432284126
+    ],
+    "fixtures": [
+      {
+        "fixture": 0,
+        "pairs": 5,
+        "parent_median_ms": 85727.00579099997,
+        "parallel_median_ms": 66487.81854099999
+      },
+      {
+        "fixture": 1,
+        "pairs": 5,
+        "parent_median_ms": 76410.40950000007,
+        "parallel_median_ms": 57606.678083000006
+      }
+    ]
+  }
+}

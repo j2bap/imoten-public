@@ -1,0 +1,6 @@
+interface:
+  display_name: "Set up Imoten"
+  short_description: "Choose models or manage optional Imoten agents"
+  default_prompt: "Use $setup-pstack to detect my Codex models and configure Imoten's pstack roles."
+policy:
+  allow_implicit_invocation: false

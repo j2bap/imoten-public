@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "date": "2026-09-20",
+  "command": "node skills/setup-pstack/scripts/codex-primary-session-canary.mjs --mode both --pressure-turns 2 --pressure-bytes 30000 --require-applied --require-compaction",
+  "model": "gpt-5.6-luna",
+  "model_family": "gpt-5-6",
+  "transport": "app-server",
+  "sandbox": "read-only",
+  "exit_code": 0,
+  "steering": {
+    "status": "completed",
+    "steer_accepted": true,
+    "applied_marker_seen": true,
+    "steer_error": null,
+    "assistant_text": "LIVE_STEER_ACK"
+  },
+  "pressure": {
+    "status": "completed",
+    "turns_completed": 2,
+    "forced_compaction": true,
+    "compaction_items": 1,
+    "ledger_compactions": 1,
+    "capabilities_after_run": {
+      "observe": true,
+      "cancel": true,
+      "send_next_turn": true,
+      "steer_live": true,
+      "fork": false,
+      "inject_visible_items": false
+    }
+  },
+  "finding": "The patched native session accepted and applied live steering, observed the full event path, forced compaction, and recorded one sealed compaction event in the visible ledger."
+}

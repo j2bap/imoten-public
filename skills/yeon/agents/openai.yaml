@@ -1,0 +1,6 @@
+interface:
+  display_name: "Yeon"
+  short_description: "Compose existing CLIs into one compact Codex result"
+  default_prompt: "Use $yeon to combine existing CLI commands and return a compact result."
+policy:
+  allow_implicit_invocation: false

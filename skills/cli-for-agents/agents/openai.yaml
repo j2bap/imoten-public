@@ -1,0 +1,6 @@
+interface:
+  display_name: "CLI for Agents"
+  short_description: "Design or review a CLI that agents can run without a terminal user"
+  default_prompt: "Use $cli-for-agents to review this CLI."
+policy:
+  allow_implicit_invocation: false

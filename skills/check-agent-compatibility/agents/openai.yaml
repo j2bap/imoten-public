@@ -1,0 +1,6 @@
+interface:
+  display_name: "Agent Compatibility Check"
+  short_description: "Score a repository for agent startup, validation, and docs reliability"
+  default_prompt: "Use $check-agent-compatibility on this repository."
+policy:
+  allow_implicit_invocation: true

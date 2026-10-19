@@ -1,0 +1,174 @@
+{
+  "schema_version": 1,
+  "date": "2026-09-20",
+  "profile": "~/.codex-personal",
+  "model": "gpt-5.6-luna",
+  "model_family": "gpt-5-6",
+  "transport": "app-server",
+  "runner": "codex-primary-session-runner.mjs",
+  "status": "completed",
+  "probe": "two sequential turns on one native primary thread with the bounded observer trace",
+  "startup": {
+    "bootstrap_ms": 125,
+    "session_init_ms": 123,
+    "initialization": {
+      "total_ms": 123,
+      "manager_init_ms": 2,
+      "connect_ms": 43,
+      "thread_start_ms": 79
+    }
+  },
+  "turns": [
+    {
+      "id": "one",
+      "prompt_mode": "full",
+      "status": "completed",
+      "elapsed_ms": 5175,
+      "first_event_ms": 20,
+      "first_token_ms": 4929,
+      "event_count": 19,
+      "observer_trace_truncated": false,
+      "input_tokens": 17499,
+      "cached_input_tokens": 0,
+      "output_tokens": 52,
+      "reasoning_output_tokens": 44,
+      "timing": {
+        "append_visible_ms": 2,
+        "prepare_ms": 3,
+        "provider_turn_ms": 5175,
+        "provider_first_event_ms": 20,
+        "provider_first_token_ms": 4929,
+        "provider_after_first_token_ms": 246,
+        "opaque_drain_ms": 0,
+        "accept_ms": 3,
+        "finalize_ms": 1,
+        "session_run_ms": 5184,
+        "provider_turn_call_ms": 5175
+      },
+      "runner_timing": {
+        "command_to_result_ms": 5184,
+        "session_run_ms": 5184
+      },
+      "observer_trace": [
+        {"elapsed_ms": 20, "method": "thread/status/changed"},
+        {"elapsed_ms": 20, "method": "turn/started"},
+        {"elapsed_ms": 349, "method": "hook/started", "hook_event": "sessionStart", "hook_handler": "command", "hook_mode": "sync", "hook_scope": "thread", "hook_source": "user"},
+        {"elapsed_ms": 1769, "method": "hook/completed", "hook_event": "sessionStart", "hook_handler": "command", "hook_mode": "sync", "hook_scope": "thread", "hook_source": "user", "hook_duration_ms": 1418},
+        {"elapsed_ms": 1769, "method": "hook/started", "hook_event": "userPromptSubmit", "hook_handler": "command", "hook_mode": "sync", "hook_scope": "turn", "hook_source": "user"},
+        {"elapsed_ms": 1769, "method": "hook/started", "hook_event": "userPromptSubmit", "hook_handler": "command", "hook_mode": "sync", "hook_scope": "turn", "hook_source": "plugin"},
+        {"elapsed_ms": 2123, "method": "hook/completed", "hook_event": "userPromptSubmit", "hook_handler": "command", "hook_mode": "sync", "hook_scope": "turn", "hook_source": "user", "hook_duration_ms": 358},
+        {"elapsed_ms": 2123, "method": "hook/completed", "hook_event": "userPromptSubmit", "hook_handler": "command", "hook_mode": "sync", "hook_scope": "turn", "hook_source": "plugin", "hook_duration_ms": 52},
+        {"elapsed_ms": 2123, "method": "item/started", "item_type": "userMessage"},
+        {"elapsed_ms": 2123, "method": "item/completed", "item_type": "userMessage"},
+        {"elapsed_ms": 3672, "method": "item/started", "item_type": "reasoning"},
+        {"elapsed_ms": 4929, "method": "item/completed", "item_type": "reasoning"},
+        {"elapsed_ms": 4929, "method": "item/started", "item_type": "agentMessage"},
+        {"elapsed_ms": 4929, "method": "item/agentMessage/delta"},
+        {"elapsed_ms": 4940, "method": "item/agentMessage/delta"},
+        {"elapsed_ms": 5102, "method": "item/completed", "item_type": "agentMessage"},
+        {"elapsed_ms": 5175, "method": "thread/tokenUsage/updated"},
+        {"elapsed_ms": 5175, "method": "thread/status/changed"},
+        {"elapsed_ms": 5175, "method": "turn/completed"}
+      ]
+    },
+    {
+      "id": "two",
+      "prompt_mode": "suffix",
+      "status": "completed",
+      "elapsed_ms": 2792,
+      "first_event_ms": 3,
+      "first_token_ms": 2552,
+      "event_count": 17,
+      "observer_trace_truncated": false,
+      "input_tokens": 18002,
+      "cached_input_tokens": 17152,
+      "output_tokens": 19,
+      "reasoning_output_tokens": 11,
+      "timing": {
+        "append_visible_ms": 2,
+        "prepare_ms": 3,
+        "provider_turn_ms": 2792,
+        "provider_first_event_ms": 3,
+        "provider_first_token_ms": 2552,
+        "provider_after_first_token_ms": 240,
+        "opaque_drain_ms": 0,
+        "accept_ms": 2,
+        "finalize_ms": 1,
+        "session_run_ms": 2800,
+        "provider_turn_call_ms": 2792
+      },
+      "runner_timing": {
+        "command_to_result_ms": 2800,
+        "session_run_ms": 2800
+      },
+      "observer_trace": [
+        {"elapsed_ms": 3, "method": "thread/status/changed"},
+        {"elapsed_ms": 3, "method": "turn/started"},
+        {"elapsed_ms": 28, "method": "hook/started", "hook_event": "userPromptSubmit", "hook_handler": "command", "hook_mode": "sync", "hook_scope": "turn", "hook_source": "user"},
+        {"elapsed_ms": 28, "method": "hook/started", "hook_event": "userPromptSubmit", "hook_handler": "command", "hook_mode": "sync", "hook_scope": "turn", "hook_source": "plugin"},
+        {"elapsed_ms": 367, "method": "hook/completed", "hook_event": "userPromptSubmit", "hook_handler": "command", "hook_mode": "sync", "hook_scope": "turn", "hook_source": "user", "hook_duration_ms": 344},
+        {"elapsed_ms": 367, "method": "hook/completed", "hook_event": "userPromptSubmit", "hook_handler": "command", "hook_mode": "sync", "hook_scope": "turn", "hook_source": "plugin", "hook_duration_ms": 49},
+        {"elapsed_ms": 367, "method": "item/started", "item_type": "userMessage"},
+        {"elapsed_ms": 367, "method": "item/completed", "item_type": "userMessage"},
+        {"elapsed_ms": 1619, "method": "item/started", "item_type": "reasoning"},
+        {"elapsed_ms": 2544, "method": "item/completed", "item_type": "reasoning"},
+        {"elapsed_ms": 2544, "method": "item/started", "item_type": "agentMessage"},
+        {"elapsed_ms": 2552, "method": "item/agentMessage/delta"},
+        {"elapsed_ms": 2563, "method": "item/agentMessage/delta"},
+        {"elapsed_ms": 2765, "method": "item/completed", "item_type": "agentMessage"},
+        {"elapsed_ms": 2791, "method": "thread/tokenUsage/updated"},
+        {"elapsed_ms": 2791, "method": "thread/status/changed"},
+        {"elapsed_ms": 2791, "method": "turn/completed"}
+      ]
+    }
+  ],
+  "controls": {
+    "single_pair_hook_disabled": {
+      "full_elapsed_ms": 2489,
+      "full_first_token_ms": 2352,
+      "suffix_elapsed_ms": 2433,
+      "suffix_first_token_ms": 2269,
+      "full_hook_count": 0,
+      "suffix_hook_count": 0
+    },
+    "repeated_four_turn_same_thread": {
+      "trusted_hooks": {
+        "elapsed_ms": [5056, 2769, 1614, 1608],
+        "first_token_ms": [4901, 2593, 1465, 1461],
+        "hook_elapsed_ms": [1829, 384, 335, 316],
+        "mean_elapsed_ms": 2761.75,
+        "mean_suffix_elapsed_ms": 1997.0
+      },
+      "hooks_disabled": {
+        "elapsed_ms": [4763, 2169, 2133, 1727],
+        "first_token_ms": [4082, 2024, 1992, 1567],
+        "hook_elapsed_ms": [0, 0, 0, 0],
+        "mean_elapsed_ms": 2698.0,
+        "mean_suffix_elapsed_ms": 2009.67
+      },
+      "ripwire_primer_control": {
+        "environment": "RIPWIRE_METER_ARM=control",
+        "elapsed_ms": [4043, 1813, 1629, 2949],
+        "first_token_ms": [3830, 1577, 1424, 1643],
+        "hook_elapsed_ms": [457, 351, 313, 335],
+        "mean_elapsed_ms": 2608.5,
+        "mean_suffix_elapsed_ms": 2130.33
+      }
+    }
+  },
+  "interpretation": [
+    "Measured. The first full turn has a 1418ms synchronous user sessionStart hook, followed by 358ms of user and 52ms of plugin userPromptSubmit hooks.",
+    "Measured. The suffix turn has 344ms of user and 49ms of plugin userPromptSubmit hook work.",
+    "Measured. The manager ledger, prompt preparation, acceptance, finalization, and runner overhead stay below 20ms per turn in the traced pair.",
+    "Inferred. The 1418ms sessionStart owner is the active user profile hook mapped to ripwire-codex-nudge.sh --session-start. The plugin source is the installed lifecycle bundle set.",
+    "Directional. A hook-disabled single pair is faster on the full turn, but four-turn means do not reproduce a reliable end-to-end win because provider time varies by more than the hook cost.",
+    "Directional. The Ripwire control arm removes the primer path while keeping Poteto and Naru hooks active. It changes hook duration, but this sample is not a significance test.",
+    "The fixed-trace pilot now records this bounded observer data with each app-server row, so the next paired run can attribute latency before changing prompt layout."
+  ],
+  "limitations": [
+    "The live observer probe used one full and one suffix turn. The repeated control used four turns per arm without randomization.",
+    "Provider queue and reasoning time varied across the paired processes, so the reported end-to-end differences are directional.",
+    "The sandbox launch failed before app-server initialization with process_closed; the same workload completed through the approved host path.",
+    "The hook source field exposes user versus plugin ownership. The report maps the user source from the active profile configuration and does not retain raw hook payloads or source paths."
+  ]
+}

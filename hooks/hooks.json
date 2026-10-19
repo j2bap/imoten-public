@@ -1,0 +1,51 @@
+{
+  "description": "Session-scoped Poteto Mode lifecycle hooks.",
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "resume|compact",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${PLUGIN_ROOT:-$CLAUDE_PLUGIN_ROOT}/hooks/scripts/poteto-mode-state.mjs\"",
+            "timeout": 2
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${PLUGIN_ROOT:-$CLAUDE_PLUGIN_ROOT}/hooks/scripts/poteto-mode-state.mjs\"",
+            "timeout": 2
+          }
+        ]
+      }
+    ],
+    "SessionEnd": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${PLUGIN_ROOT:-$CLAUDE_PLUGIN_ROOT}/hooks/scripts/poteto-mode-state.mjs\"",
+            "timeout": 1
+          }
+        ]
+      }
+    ],
+    "SubagentStart": [
+      {
+        "matcher": "^imoten-poteto-agent$",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${PLUGIN_ROOT:-$CLAUDE_PLUGIN_ROOT}/hooks/scripts/poteto-subagent-context.mjs\"",
+            "timeout": 2
+          }
+        ]
+      }
+    ]
+  }
+}

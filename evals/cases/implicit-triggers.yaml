@@ -1,0 +1,137 @@
+{
+  "schema_version": 1,
+  "cases": [
+    {
+      "id": "implicit-positive:loop-on-ci",
+      "skill": "loop-on-ci",
+      "polarity": "positive",
+      "input": "Keep watching the checks on my PR and fix anything that fails until it goes green.",
+      "expected": {
+        "implicit_skill": "loop-on-ci",
+        "owner": "skills/loop-on-ci/SKILL.md"
+      },
+      "reason": "Watch-and-fix until green is the skill's stated job."
+    },
+    {
+      "id": "implicit-negative:loop-on-ci",
+      "skill": "loop-on-ci",
+      "polarity": "negative",
+      "input": "One lint check failed on this PR. Fix just that and push.",
+      "expected": {
+        "implicit_skill": null,
+        "owner": "skills/fix-ci/SKILL.md"
+      },
+      "reason": "A single fix pass belongs to fix-ci, which Poteto Mode routes."
+    },
+    {
+      "id": "implicit-positive:new-branch-and-pr",
+      "skill": "new-branch-and-pr",
+      "polarity": "positive",
+      "input": "Start a fresh branch off the latest main for the retry fix, and open a ready PR when it is done.",
+      "expected": {
+        "implicit_skill": "new-branch-and-pr",
+        "owner": "skills/new-branch-and-pr/SKILL.md"
+      },
+      "reason": "New branch from trunk through a ready PR is the skill's stated job."
+    },
+    {
+      "id": "implicit-negative:new-branch-and-pr",
+      "skill": "new-branch-and-pr",
+      "polarity": "negative",
+      "input": "Open a PR for the commits already on this branch.",
+      "expected": {
+        "implicit_skill": null,
+        "owner": "skills/poteto-mode/playbooks/opening-a-pr.md"
+      },
+      "reason": "The branch exists, so only the PR step remains, which opening-a-pr owns."
+    },
+    {
+      "id": "implicit-positive:review-and-ship",
+      "skill": "review-and-ship",
+      "polarity": "positive",
+      "input": "Review my branch, fix what matters, run the tests, commit, and open the PR. Do not merge.",
+      "expected": {
+        "implicit_skill": "review-and-ship",
+        "owner": "skills/review-and-ship/SKILL.md"
+      },
+      "reason": "Review, fix, test, commit, and open without merging is the skill's stated job."
+    },
+    {
+      "id": "implicit-negative:review-and-ship",
+      "skill": "review-and-ship",
+      "polarity": "negative",
+      "input": "Review this diff for bugs and security issues. Do not change anything.",
+      "expected": {
+        "implicit_skill": null,
+        "owner": "skills/dev-review/SKILL.md"
+      },
+      "reason": "A read-only review with no fix or PR step belongs to dev-review."
+    },
+    {
+      "id": "implicit-positive:weekly-review",
+      "skill": "weekly-review",
+      "polarity": "positive",
+      "input": "Write my weekly recap of what I shipped this week, grouped by bug fixes, tech debt, and new work.",
+      "expected": {
+        "implicit_skill": "weekly-review",
+        "owner": "skills/weekly-review/SKILL.md"
+      },
+      "reason": "A 7-to-10-day recap grouped by work type is the skill's stated job."
+    },
+    {
+      "id": "implicit-negative:weekly-review",
+      "skill": "weekly-review",
+      "polarity": "negative",
+      "input": "What did I get done yesterday? Keep it short for standup.",
+      "expected": {
+        "implicit_skill": "what-did-i-get-done",
+        "owner": "skills/what-did-i-get-done/SKILL.md"
+      },
+      "reason": "A named short window belongs to what-did-i-get-done."
+    },
+    {
+      "id": "implicit-positive:what-did-i-get-done",
+      "skill": "what-did-i-get-done",
+      "polarity": "positive",
+      "input": "Summarize what I got done over the last 3 days for my standup update.",
+      "expected": {
+        "implicit_skill": "what-did-i-get-done",
+        "owner": "skills/what-did-i-get-done/SKILL.md"
+      },
+      "reason": "A named time window turned into a status update is the skill's stated job."
+    },
+    {
+      "id": "implicit-negative:what-did-i-get-done",
+      "skill": "what-did-i-get-done",
+      "polarity": "negative",
+      "input": "Where did I leave off on the payment refactor? I want to pick it back up.",
+      "expected": {
+        "implicit_skill": null,
+        "owner": "skills/recall/SKILL.md"
+      },
+      "reason": "Resuming prior work belongs to recall, not a commit summary."
+    },
+    {
+      "id": "implicit-positive:check-agent-compatibility",
+      "skill": "check-agent-compatibility",
+      "polarity": "positive",
+      "input": "How well does this repository work for coding agents? Give it a score.",
+      "expected": {
+        "implicit_skill": "check-agent-compatibility",
+        "owner": "skills/check-agent-compatibility/SKILL.md"
+      },
+      "reason": "Scoring a repository for agents is the skill's stated job."
+    },
+    {
+      "id": "implicit-negative:check-agent-compatibility",
+      "skill": "check-agent-compatibility",
+      "polarity": "negative",
+      "input": "What could this change break outside the files it touches?",
+      "expected": {
+        "implicit_skill": null,
+        "owner": "skills/blast-radius/SKILL.md"
+      },
+      "reason": "Change impact belongs to blast-radius."
+    }
+  ]
+}

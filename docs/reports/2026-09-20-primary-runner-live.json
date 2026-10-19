@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "date": "2026-09-20",
+  "profile": "~/.codex-personal",
+  "model": "gpt-5.6-luna",
+  "model_family": "gpt-5-6",
+  "transport": "app-server",
+  "runner": "codex-primary-session-runner.mjs",
+  "sandbox": "read-only",
+  "status": "completed",
+  "same_thread": true,
+  "turns": [
+    {
+      "id": "one",
+      "prompt_mode": "full",
+      "status": "completed",
+      "elapsed_ms": 11658,
+      "first_token_ms": 8198,
+      "input_tokens": 18019,
+      "cached_input_tokens": 16128,
+      "output_tokens": 22,
+      "reasoning_output_tokens": 12
+    },
+    {
+      "id": "two",
+      "prompt_mode": "suffix",
+      "status": "completed",
+      "elapsed_ms": 6482,
+      "first_token_ms": 2828,
+      "input_tokens": 21214,
+      "cached_input_tokens": 18176,
+      "output_tokens": 17,
+      "reasoning_output_tokens": 7
+    }
+  ],
+  "steering": {
+    "status": "completed",
+    "request_state": "queued",
+    "applied_marker_seen": true,
+    "elapsed_ms": 24673,
+    "first_token_ms": 10231,
+    "input_tokens": 18110,
+    "cached_input_tokens": 17152
+  },
+  "compaction_items": 0,
+  "note": "One live runner pass on the active personal profile. Steering was accepted and the marker appeared. This proves the integration path, not statistical performance significance."
+}

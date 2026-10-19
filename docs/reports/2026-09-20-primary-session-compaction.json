@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "date": "2026-09-20",
+  "command": "node skills/setup-pstack/scripts/codex-primary-session-canary.mjs --mode pressure --pressure-turns 2 --pressure-bytes 30000 --require-compaction",
+  "model": "gpt-5.6-luna",
+  "model_family": "gpt-5-6",
+  "transport": "app-server",
+  "sandbox": "read-only",
+  "status": "completed",
+  "turns_completed": 2,
+  "forced_compaction": true,
+  "compaction_items_observed": 1,
+  "ledger_compactions": 1,
+  "capabilities_after_run": {
+    "observe": true,
+    "cancel": true,
+    "send_next_turn": true,
+    "steer_live": true,
+    "fork": false,
+    "inject_visible_items": false
+  },
+  "finding": "The live provider emitted a contextCompaction item without encrypted content. The adapter captured it, stored the opaque artifact, and recorded one sealed compaction event in the visible ledger.",
+  "exit_code": 0
+}

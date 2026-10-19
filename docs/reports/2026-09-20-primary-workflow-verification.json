@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "date": "2026-09-20",
+  "command": "npm run verify:offline",
+  "exit_code": 0,
+  "node_tests": {
+    "command": "npm run test:offline",
+    "tests": 293,
+    "passed": 293,
+    "failed": 0
+  },
+  "bun_tests": {
+    "command": "npm run test:bun",
+    "tests": 54,
+    "passed": 54,
+    "failed": 0
+  },
+  "typecheck": {
+    "command": "npm run typecheck",
+    "exit_code": 0
+  },
+  "compatibility": {
+    "command": "npm run compatibility:check",
+    "exit_code": 0
+  },
+  "finding": "Full offline verification passed after the native primary and Poteto prompt changes."
+}

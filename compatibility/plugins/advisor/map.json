@@ -1,0 +1,177 @@
+{
+  "schemaVersion": 1,
+  "upstream": {
+    "repository": "https://github.com/cursor/plugins",
+    "subdirectory": "advisor",
+    "commit": "adf3218ca2f5b9971eedc07a76bef22df7701539",
+    "version": "1.0.0"
+  },
+  "classifications": [
+    "preserved",
+    "adapted",
+    "replaced",
+    "provenance-only"
+  ],
+  "entries": [
+    {
+      "upstreamPath": ".cursor-plugin/plugin.json",
+      "upstreamSha256": "c8d13c05df3c20de68ece4b261a819c910e47c95729e062f59d8854da342644b",
+      "classification": "replaced",
+      "derivedPath": ".codex-plugin/plugin.json",
+      "preservedInvariants": [
+        "the ported skills are declared through the Imoten skills directory"
+      ],
+      "validations": [
+        "manifest",
+        "installed-plugin"
+      ]
+    },
+    {
+      "upstreamPath": "agents/advisor-subagent.md",
+      "upstreamSha256": "50debf8b5848c7e9f43c84985631445e554e246b52ecf83d6691bfa79643878e",
+      "classification": "adapted",
+      "derivedPath": "skills/advisor/references/advisor-prompt.md",
+      "preservedInvariants": [
+        "the subagent persona becomes a portable prompt dispatched through the runtime contract"
+      ],
+      "validations": [
+        "skill-behavior"
+      ]
+    },
+    {
+      "upstreamPath": "assets/avatar.png",
+      "upstreamSha256": "587c717c31aa5b2cf3310822262890d56ef5716fdc5694cc3883e59455aeca10",
+      "classification": "provenance-only",
+      "preservedInvariants": [
+        "the file is recorded for provenance and not shipped"
+      ],
+      "validations": [
+        "upstream-hash"
+      ]
+    },
+    {
+      "upstreamPath": "CHANGELOG.md",
+      "upstreamSha256": "6f9f9a3c443e77e04be5ed5478f1decd19123b77c6c400da8e2f7995cceacdd6",
+      "classification": "provenance-only",
+      "preservedInvariants": [
+        "the file is recorded for provenance and not shipped"
+      ],
+      "validations": [
+        "upstream-hash"
+      ]
+    },
+    {
+      "upstreamPath": "hooks/capture-response.sh",
+      "upstreamSha256": "51c249434fbd19fd198fba05a99b6b2637f34877a5bd43adc62b3ecd8f71440a",
+      "classification": "provenance-only",
+      "preservedInvariants": [
+        "the automatic nudge is replaced by explicit advisor checkpoints because automatic prompt injection is disabled"
+      ],
+      "validations": [
+        "skill-behavior"
+      ]
+    },
+    {
+      "upstreamPath": "hooks/hooks.json",
+      "upstreamSha256": "353d83923e0056f62648c76256d85935fc080ceb2b34d153f13b6cb9356eea49",
+      "classification": "provenance-only",
+      "preservedInvariants": [
+        "the automatic nudge is replaced by explicit advisor checkpoints because automatic prompt injection is disabled"
+      ],
+      "validations": [
+        "skill-behavior"
+      ]
+    },
+    {
+      "upstreamPath": "hooks/lib.sh",
+      "upstreamSha256": "1ca60db14f4693d75768372ca64f74456591227ba7a39474e5a20960427b8cbe",
+      "classification": "provenance-only",
+      "preservedInvariants": [
+        "the automatic nudge is replaced by explicit advisor checkpoints because automatic prompt injection is disabled"
+      ],
+      "validations": [
+        "skill-behavior"
+      ]
+    },
+    {
+      "upstreamPath": "hooks/mark-pending.sh",
+      "upstreamSha256": "61096abd683fb13b645a8c038fd05f11bf6f0bab77a9c15cd5ede9cbe7bb18fd",
+      "classification": "provenance-only",
+      "preservedInvariants": [
+        "the automatic nudge is replaced by explicit advisor checkpoints because automatic prompt injection is disabled"
+      ],
+      "validations": [
+        "skill-behavior"
+      ]
+    },
+    {
+      "upstreamPath": "hooks/record-consult.sh",
+      "upstreamSha256": "ca937ec0a3ab9d97998c18432da11a09c3a6cb720072dacb00b66851e3ccee3e",
+      "classification": "provenance-only",
+      "preservedInvariants": [
+        "the automatic nudge is replaced by explicit advisor checkpoints because automatic prompt injection is disabled"
+      ],
+      "validations": [
+        "skill-behavior"
+      ]
+    },
+    {
+      "upstreamPath": "hooks/stop-hook.sh",
+      "upstreamSha256": "563efd736a5b5a2dc1cadbbd64caefc9f30133d49d02b5312c9e4ea0fc2636bf",
+      "classification": "provenance-only",
+      "preservedInvariants": [
+        "the automatic nudge is replaced by explicit advisor checkpoints because automatic prompt injection is disabled"
+      ],
+      "validations": [
+        "skill-behavior"
+      ]
+    },
+    {
+      "upstreamPath": "LICENSE",
+      "upstreamSha256": "702f5f331b56aff0e33d8c7826df5202559f894145eb70355c6477b55b5bb8a0",
+      "classification": "preserved",
+      "derivedPath": "LICENSE-upstream-plugins",
+      "preservedInvariants": [
+        "the upstream MIT license text remains byte-identical"
+      ],
+      "validations": [
+        "upstream-hash"
+      ]
+    },
+    {
+      "upstreamPath": "README.md",
+      "upstreamSha256": "dfc6626c184c3e02aa01d4323349c0aa71ef21ed983969d764a6b539fff5f1f6",
+      "classification": "provenance-only",
+      "preservedInvariants": [
+        "the file is recorded for provenance and not shipped"
+      ],
+      "validations": [
+        "upstream-hash"
+      ]
+    },
+    {
+      "upstreamPath": "skills/advisor/references/briefing-template.md",
+      "upstreamSha256": "16d5140b8cecb6b9a75dc10ca0fff4b162e632107690b6eb29656b41c9468066",
+      "classification": "adapted",
+      "derivedPath": "skills/advisor/references/briefing-template.md",
+      "preservedInvariants": [
+        "the skill keeps its upstream purpose and guardrails with Imoten runtime, forge, and verdict rules"
+      ],
+      "validations": [
+        "skill-behavior"
+      ]
+    },
+    {
+      "upstreamPath": "skills/advisor/SKILL.md",
+      "upstreamSha256": "e34d52a0f9948057ac754151b2e116db47205674418de0548cd9df4477f52bf8",
+      "classification": "adapted",
+      "derivedPath": "skills/advisor/SKILL.md",
+      "preservedInvariants": [
+        "the skill keeps its upstream purpose and guardrails with Imoten runtime, forge, and verdict rules"
+      ],
+      "validations": [
+        "skill-behavior"
+      ]
+    }
+  ]
+}

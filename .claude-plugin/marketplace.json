@@ -1,0 +1,21 @@
+{
+  "name": "j2bap-imoten",
+  "owner": {
+    "name": "j2bap"
+  },
+  "description": "Imoten engineering workflows for Codex and Claude Code.",
+  "plugins": [
+    {
+      "name": "imoten",
+      "source": "./",
+      "description": "Crisp pstack-derived workflows with Claude Code support.",
+      "version": "0.2.0",
+      "author": {
+        "name": "Lauren Tan (pstack), Aqua-123 (Codex fork), j2bap (Imoten)"
+      },
+      "homepage": "https://github.com/j2bap/imoten-public",
+      "repository": "https://github.com/j2bap/imoten-public",
+      "license": "MIT"
+    }
+  ]
+}

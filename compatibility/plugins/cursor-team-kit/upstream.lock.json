@@ -1,0 +1,163 @@
+{
+  "schemaVersion": 1,
+  "source": {
+    "repository": "https://github.com/cursor/plugins",
+    "subdirectory": "cursor-team-kit",
+    "commit": "adf3218ca2f5b9971eedc07a76bef22df7701539",
+    "version": "1.2.0",
+    "retrievedAt": "2026-09-28",
+    "license": "MIT",
+    "licenseFile": "LICENSE"
+  },
+  "inventory": {
+    "fileCount": 29,
+    "hashAlgorithm": "sha256"
+  },
+  "files": [
+    {
+      "path": ".cursor-plugin/plugin.json",
+      "sha256": "9c8622d0577205959b6469a5454cbe2787ad3c6412439759328e92dc0115584d",
+      "bytes": 899
+    },
+    {
+      "path": "agents/ci-watcher.md",
+      "sha256": "8bc93b9ced5588f0ece54ce52690e9682ac49a7fd64be7124379b0e2e128556e",
+      "bytes": 984
+    },
+    {
+      "path": "agents/thermo-nuclear-code-quality-review.md",
+      "sha256": "4d15c05be503f9fdb795a292807334558e7619ffc2fd75ddbc9e97e0d6312234",
+      "bytes": 1874
+    },
+    {
+      "path": "assets/avatar.png",
+      "sha256": "13127219825cd53eff1f09686798f2dd7f5e00d0a7093e74d2619e72d5a44c26",
+      "bytes": 59641
+    },
+    {
+      "path": "LICENSE",
+      "sha256": "702f5f331b56aff0e33d8c7826df5202559f894145eb70355c6477b55b5bb8a0",
+      "bytes": 1063
+    },
+    {
+      "path": "README.md",
+      "sha256": "6f0e34073ee503824eb5baf52a52119cffe330f2685477ea8d303e881ecd1679",
+      "bytes": 2526
+    },
+    {
+      "path": "rules/no-inline-imports.mdc",
+      "sha256": "91bb4412f2775b386ddf6af0d235fbe8160907f6104c76928470fdf51be69edd",
+      "bytes": 314
+    },
+    {
+      "path": "rules/typescript-exhaustive-switch.mdc",
+      "sha256": "58214625757c38b73fc3e66a715ea4b2ae609f6b3e285edc4393c5144430a8f4",
+      "bytes": 297
+    },
+    {
+      "path": "skills/check-compiler-errors/SKILL.md",
+      "sha256": "1ad76beccd581fc285199334709e0a37cdc2f76e5d0d33c90e1dc21905518004",
+      "bytes": 535
+    },
+    {
+      "path": "skills/control-cli/SKILL.md",
+      "sha256": "13ac93e595bbda2000849bdb815d5f2ca03f7c2ca63788c8335f9212b9b422a2",
+      "bytes": 4333
+    },
+    {
+      "path": "skills/control-ui/SKILL.md",
+      "sha256": "410cae25bdb1e5d2323b126abc5047b0213be7fdb0195710213fa8de8a751871",
+      "bytes": 4802
+    },
+    {
+      "path": "skills/deslop/SKILL.md",
+      "sha256": "2f7b7def74af7ed11f5b44b4d32f0f91fca8c5d1f92bf2171e8d12fd33a0f810",
+      "bytes": 719
+    },
+    {
+      "path": "skills/fix-ci/SKILL.md",
+      "sha256": "925f8c3e11de8bcc0cd015ec907f4d00b12cde6714246554ed3a52e096536522",
+      "bytes": 901
+    },
+    {
+      "path": "skills/fix-merge-conflicts/SKILL.md",
+      "sha256": "738b251281b30fd33e3892d0679cf94249e9c9e29e1bed40bcdde4a6aca98a76",
+      "bytes": 988
+    },
+    {
+      "path": "skills/get-pr-comments/SKILL.md",
+      "sha256": "8bf292736cab922276feb4d8377edc2fc4102a7beb62bcd1f3f5cf72a79b16cc",
+      "bytes": 529
+    },
+    {
+      "path": "skills/loop-on-ci/SKILL.md",
+      "sha256": "66b85dbd2bc3700386283539292a55438652bbe227271fd90b73b74525b9b9de",
+      "bytes": 1611
+    },
+    {
+      "path": "skills/make-pr-easy-to-review/SKILL.md",
+      "sha256": "e8da0d4a85b7c04823698f539251617389f827fd9137100ef7eaea5dcc992fe7",
+      "bytes": 2275
+    },
+    {
+      "path": "skills/new-branch-and-pr/SKILL.md",
+      "sha256": "4e8f502fcf48553949387a9a7f58b21349e0ff87c24bf8ff5c0013e9da6819fd",
+      "bytes": 665
+    },
+    {
+      "path": "skills/pr-review-canvas/renderer.js",
+      "sha256": "d78d36a46b0aeae755e2edd9b712970fd181183bb1c320d10caa8d9f776695c6",
+      "bytes": 6762
+    },
+    {
+      "path": "skills/pr-review-canvas/SKILL.md",
+      "sha256": "88a07a2459197acba3c5e06b7d695e35ad618a998442b72d05cdba4efc117ac6",
+      "bytes": 9088
+    },
+    {
+      "path": "skills/pr-review-canvas/styles.css",
+      "sha256": "3c3ff002dd3bfe7f4fdbda521fce05e336c4a7922f4bd4d848f6566a961ceb19",
+      "bytes": 5788
+    },
+    {
+      "path": "skills/pr-review-canvas/template.html",
+      "sha256": "cb56bc764384856da4733d1c999521c3e1b20d65ed80605630b74da448abe756",
+      "bytes": 513
+    },
+    {
+      "path": "skills/review-and-ship/SKILL.md",
+      "sha256": "5c8e88c91e726e024c824d2b02be6bfc7ad81ac5e67c104ef2b66840715373c1",
+      "bytes": 1398
+    },
+    {
+      "path": "skills/run-smoke-tests/SKILL.md",
+      "sha256": "848c9f34af50f8a0edecbdc239707b694f5f9ac497c61b5907f2bf0caa1372fb",
+      "bytes": 967
+    },
+    {
+      "path": "skills/thermo-nuclear-code-quality-review/SKILL.md",
+      "sha256": "7faca08b51b643b2ddd0836f92af15574444024685dcc1e677dbbb39ae8c9e8f",
+      "bytes": 12437
+    },
+    {
+      "path": "skills/verify-this/SKILL.md",
+      "sha256": "c1c7b27c1133085bd3409c601ea12b6e6f61b4b23debcd52bc248fc01907e7de",
+      "bytes": 2805
+    },
+    {
+      "path": "skills/weekly-review/SKILL.md",
+      "sha256": "b56a2c283916b4551aeb322398ab99a19b4b5d7678ffd7f9c9f3df9fa05f4712",
+      "bytes": 902
+    },
+    {
+      "path": "skills/what-did-i-get-done/SKILL.md",
+      "sha256": "479813c9abaacb5b6b0531f1de7dc5eb2f3bd9673707a992d1073335836e82f8",
+      "bytes": 1012
+    },
+    {
+      "path": "skills/workflow-from-chats/SKILL.md",
+      "sha256": "b568176390165921c5e351cc73b553e3e997f92c9f85dfb1c5a220c943fbaa16",
+      "bytes": 2685
+    }
+  ]
+}

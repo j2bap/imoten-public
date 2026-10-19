@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "date": "2026-09-20",
+  "profile": "~/.codex-personal",
+  "model": "gpt-5.6-luna",
+  "model_family": "gpt-5-6",
+  "transport": "app-server",
+  "runner": "codex-primary-session-runner.mjs",
+  "sandbox": "read-only",
+  "workload": "fresh-session repository read with one required command execution and exact JSON output",
+  "quality_contract": {
+    "expected_test_name": "runner keeps one native primary thread across task packets",
+    "expected_model": "gpt-5.6-luna",
+    "expected_run_commands": 2,
+    "expected_asserts_observer_trace": true,
+    "tool_call_requirement": "one commandExecution call per turn"
+  },
+  "pair_order": [
+    ["trusted", "primer_control"],
+    ["primer_control", "trusted"],
+    ["trusted", "primer_control"],
+    ["primer_control", "trusted"]
+  ],
+  "baseline_trusted": {
+    "n": 4,
+    "elapsed_ms": [59266, 38192, 14447, 56031],
+    "session_start_hook_ms": [1302, 1264, 1287, 1273],
+    "command_execution_events": [2, 2, 2, 2],
+    "answer_correct": [true, true, true, true],
+    "mean_elapsed_ms": 41984,
+    "median_elapsed_ms": 47111.5
+  },
+  "treatment_primer_control": {
+    "n": 4,
+    "flag": "--no-ripwire-session-primer",
+    "underlying_environment": "RIPWIRE_METER_ARM=control",
+    "elapsed_ms": [12662, 20171, 10994, 12858],
+    "session_start_hook_ms": [111, 137, 144, 131],
+    "command_execution_events": [2, 2, 2, 2],
+    "answer_correct": [true, true, true, true],
+    "mean_elapsed_ms": 14171.25,
+    "median_elapsed_ms": 12760
+  },
+  "paired_result": {
+    "elapsed_deltas_ms_trusted_minus_control": [46604, 18021, 3453, 43173],
+    "mean_delta_ms": 27812.75,
+    "median_delta_ms": 30597,
+    "mean_relative_reduction_percent": 66.2,
+    "exact_two_sided_sign_flip_p": 0.125,
+    "tool_call_parity": true,
+    "answer_parity": true,
+    "verdict": "quality_guard_passes_for_this_workload"
+  },
+  "post_change_default_probe": {
+    "status": "completed",
+    "flag": "none",
+    "assistant_text": "READY",
+    "elapsed_ms": 4265,
+    "first_token_ms": 4066,
+    "session_start_hook_ms": [143],
+    "user_prompt_hook_ms": [327, 45],
+    "observer_trace_truncated": false,
+    "process_exit_code": 0
+  },
+  "interpretation": [
+    "Measured. All eight runs completed with exit code 0 and the expected JSON answer.",
+    "Measured. Both arms made one commandExecution call per turn. The trace records two events per call because it reports started and completed.",
+    "Measured. The primer control reduced mean fresh-turn time by 27,812.75 ms, or 66.2 percent, in this four-pair probe.",
+    "Measured. The sessionStart hook averaged 1,281.5 ms in the trusted arm and 130.75 ms in the control arm.",
+    "Exploratory. The exact paired sign-flip p value is 0.125 because n is four. This result clears the task-quality guard for this workload but is not a general quality guarantee."
+  ],
+  "limitations": [
+    "One model, repository, task shape, and active personal profile.",
+    "The task checks exact read-only behavior and does not measure a code change or a long multi-turn repair.",
+    "The comparison uses a runner control arm. It does not change the external Ripwire hook."
+  ]
+}

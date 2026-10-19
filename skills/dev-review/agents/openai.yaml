@@ -1,0 +1,6 @@
+interface:
+  display_name: "Adversarial Dev Review"
+  short_description: "Multi-lens pre-merge code review"
+  default_prompt: "Use $dev-review to review the current branch before I open the merge request."
+policy:
+  allow_implicit_invocation: false

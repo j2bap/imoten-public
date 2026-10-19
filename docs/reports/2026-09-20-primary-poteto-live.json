@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "date": "2026-09-20",
+  "command": "node skills/setup-pstack/scripts/codex-primary-session-runner.mjs --root-dir TEMP --model-family gpt-5-6 --model gpt-5.6-luna --cwd REPOSITORY --common-prefix-file tests/fixtures/native-primary-prefix.json --poteto-prompt-file skills/poteto-mode/references/poteto-agent-prompt.md",
+  "transport": "app-server",
+  "sandbox": "read-only",
+  "model": "gpt-5.6-luna",
+  "model_family": "gpt-5-6",
+  "exit_code": 0,
+  "ready": {
+    "poteto_prompt": "loaded",
+    "ripwire_session_primer": "disabled",
+    "observe": true,
+    "cancel": true,
+    "send_next_turn": true,
+    "steer_live": false
+  },
+  "result": {
+    "status": "completed",
+    "prompt_mode": "full",
+    "event_count": 61,
+    "first_event_ms": 3,
+    "first_token_ms": 10384,
+    "tool_execution_items": 1,
+    "assistant_marker": "POTETO_NATIVE_ACK",
+    "verification": "The live model read repository status with one read-only shell command and reported uncommitted changes.",
+    "assistant_text_is_bounded": true
+  },
+  "finding": "The native runner loaded the portable Poteto prompt, kept one app-server thread, observed the live hook and tool trace, and returned the requested bounded result without edits."
+}

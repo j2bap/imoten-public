@@ -1,0 +1,68 @@
+{
+  "schemaVersion": 1,
+  "source": {
+    "repository": "https://github.com/cursor/plugins",
+    "subdirectory": "agent-compatibility",
+    "commit": "adf3218ca2f5b9971eedc07a76bef22df7701539",
+    "version": "1.0.0",
+    "retrievedAt": "2026-09-28",
+    "license": "MIT",
+    "licenseFile": "LICENSE"
+  },
+  "inventory": {
+    "fileCount": 10,
+    "hashAlgorithm": "sha256"
+  },
+  "files": [
+    {
+      "path": ".cursor-plugin/plugin.json",
+      "sha256": "218c292ffd6715f6fd60b3316ca37778ebc1e29b5b14f47183cae6581993f0df",
+      "bytes": 803
+    },
+    {
+      "path": "agents/compatibility-scan-review.md",
+      "sha256": "4ce59d99d3d882b8768abec5ff839dfe7ec055218507b49e8b89b76c94b40693",
+      "bytes": 1896
+    },
+    {
+      "path": "agents/docs-reliability-review.md",
+      "sha256": "a0bb33ebc679b0ee0030580924c9d9915632af5e6fb41f6066346f2b688d48e8",
+      "bytes": 2323
+    },
+    {
+      "path": "agents/startup-review.md",
+      "sha256": "4e713f4dac1997febf48c1a5bdab96e2a4454f7062fed3a0e1142b8d4cfefd36",
+      "bytes": 3180
+    },
+    {
+      "path": "agents/validation-review.md",
+      "sha256": "38612d157dfd443955f2541248bf4b19fae1f50ee7e9fca0ab53c2f7060ce5cd",
+      "bytes": 2487
+    },
+    {
+      "path": "assets/avatar.png",
+      "sha256": "7b472ecdd8d881d07df7fc83975fb422ac02a32ab6ef48cdb49cfbe6e22e182b",
+      "bytes": 24255
+    },
+    {
+      "path": "CHANGELOG.md",
+      "sha256": "65a175850994c2ed2281b72da472068d3f709488bab9883188fd3e2542e5d6cd",
+      "bytes": 511
+    },
+    {
+      "path": "LICENSE",
+      "sha256": "702f5f331b56aff0e33d8c7826df5202559f894145eb70355c6477b55b5bb8a0",
+      "bytes": 1063
+    },
+    {
+      "path": "README.md",
+      "sha256": "6ed98c279f8fccd7d3562fa4914bb306d91bbd08a5b4c2b9bfc9bc011ec82b51",
+      "bytes": 2615
+    },
+    {
+      "path": "skills/check-agent-compatibility/SKILL.md",
+      "sha256": "2391a06aec1bfb475690a9c386207e009090e35c624b5ca6cace3ea4c6705970",
+      "bytes": 2401
+    }
+  ]
+}

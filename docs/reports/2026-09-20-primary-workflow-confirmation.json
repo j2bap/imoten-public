@@ -1,0 +1,103 @@
+{
+  "schema_version": 1,
+  "date": "2026-09-20",
+  "model": "gpt-5.6-luna",
+  "model_family": "gpt-5-6",
+  "profile": "~/.codex-personal",
+  "transport": {
+    "baseline": "codex exec",
+    "treatment": "codex-primary-session-runner app-server"
+  },
+  "workload": "fresh tool-using read-only turns across three exact JSON cases",
+  "quality_contract": {
+    "required_command_calls": 1,
+    "exact_answer": true,
+    "all_turns_completed": true,
+    "no_file_edits": true
+  },
+  "replicates": 3,
+  "arm_summary": {
+    "batch": {
+      "n": 9,
+      "mean_wall_ms": 16387.88888888889,
+      "median_wall_ms": 14654,
+      "all_exit_zero": true,
+      "all_turn_completed": true,
+      "all_answer_correct": true,
+      "all_one_command": true
+    },
+    "native": {
+      "n": 9,
+      "mean_wall_ms": 13961.777777777777,
+      "median_wall_ms": 13992,
+      "mean_provider_ms": 13664.555555555555,
+      "all_exit_zero": true,
+      "all_turn_completed": true,
+      "all_answer_correct": true,
+      "all_one_command": true,
+      "primer": "disabled"
+    }
+  },
+  "paired_result": {
+    "deltas_ms": [163, 1745, -1954, 5719, 8326, 351, 4016, 662, 2807],
+    "mean_delta_ms": 2426.1111111111113,
+    "median_delta_ms": 1745,
+    "positive_pairs": 8,
+    "negative_pairs": 1,
+    "exact_two_sided_sign_flip_p": 0.0390625,
+    "mean_relative_reduction_percent": 14.804293143310455
+  },
+  "cases": {
+    "package-command": {
+      "replicates": 3,
+      "batch_wall_ms": [13957, 22326, 18212],
+      "native_wall_ms": [13794, 16607, 14196],
+      "batch_mean_ms": 18165,
+      "native_mean_ms": 14865.666666666666,
+      "delta_ms": [163, 5719, 4016],
+      "median_delta_ms": 4016,
+      "native_all_answer_correct": true,
+      "batch_all_answer_correct": true,
+      "native_all_one_command": true,
+      "batch_all_one_command": true
+    },
+    "runner-default": {
+      "replicates": 3,
+      "batch_wall_ms": [13532, 21550, 14654],
+      "native_wall_ms": [11787, 13224, 13992],
+      "batch_mean_ms": 16578.666666666668,
+      "native_mean_ms": 13001,
+      "delta_ms": [1745, 8326, 662],
+      "median_delta_ms": 1745,
+      "native_all_answer_correct": true,
+      "batch_all_answer_correct": true,
+      "native_all_one_command": true,
+      "batch_all_one_command": true
+    },
+    "workflow-entry": {
+      "replicates": 3,
+      "batch_wall_ms": [12685, 15967, 14608],
+      "native_wall_ms": [14639, 15616, 11801],
+      "batch_mean_ms": 14420,
+      "native_mean_ms": 14018.666666666666,
+      "delta_ms": [-1954, 351, 2807],
+      "median_delta_ms": 351,
+      "native_all_answer_correct": true,
+      "batch_all_answer_correct": true,
+      "native_all_one_command": true,
+      "batch_all_one_command": true
+    }
+  },
+  "interpretation": [
+    "All 18 turns exited 0 and completed.",
+    "All 18 turns returned the exact expected JSON object.",
+    "All 18 turns made exactly one command execution.",
+    "The native runner reduced mean fresh-process wall time by 14.8 percent in this three-case, three-replicate matrix.",
+    "The app-server receipt was corrected to accept both agent_message and agentMessage item types."
+  ],
+  "limitations": [
+    "One model, repository, personal profile, and read-only task family.",
+    "The comparison measures fresh process turns. It does not prove long multi-turn repair quality.",
+    "The native runner remains an explicit programmatic entry point; the interactive parent session is not rerouted."
+  ]
+}

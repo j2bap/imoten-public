@@ -1,0 +1,37 @@
+{
+  "name": "imoten",
+  "version": "0.2.0+codex.20261015162901",
+  "description": "Crisp engineering workflows for Codex and Claude Code, derived from pstack.",
+  "author": {
+    "name": "j2bap"
+  },
+  "homepage": "https://github.com/j2bap/imoten-public",
+  "repository": "https://github.com/j2bap/imoten-public",
+  "license": "MIT",
+  "keywords": [
+    "pstack",
+    "codex",
+    "engineering-workflows",
+    "poteto-mode",
+    "principles"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Imoten",
+    "shortDescription": "Crisp Codex engineering workflows",
+    "longDescription": "A Codex-first pstack derivative for planning, implementation, review, verification, and orchestration, with Claude Code compatibility.",
+    "developerName": "j2bap",
+    "websiteURL": "https://github.com/j2bap/imoten-public",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Plan engineering work",
+      "Orchestrate bounded agents",
+      "Review and verify changes"
+    ],
+    "defaultPrompt": [
+      "$imoten:poteto-mode Handle this engineering task.",
+      "Use $architect to design this change before implementation.",
+      "Use $blast-radius to assess what this change could break."
+    ]
+  }
+}

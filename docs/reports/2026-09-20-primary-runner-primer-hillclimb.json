@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "date": "2026-09-20",
+  "metric": "fresh full-turn command_to_result_ms",
+  "direction": "lower_is_better",
+  "model": "gpt-5.6-luna",
+  "model_family": "gpt-5-6",
+  "profile": "~/.codex-personal",
+  "transport": "app-server",
+  "workload": "one exact-response full turn per fresh native primary session",
+  "pair_order": [
+    ["trusted", "primer_control"],
+    ["primer_control", "trusted"],
+    ["primer_control", "trusted"],
+    ["trusted", "primer_control"],
+    ["primer_control", "trusted"],
+    ["trusted", "primer_control"],
+    ["trusted", "primer_control"],
+    ["primer_control", "trusted"]
+  ],
+  "baseline_trusted": {
+    "n": 8,
+    "elapsed_ms": [6029, 5232, 5308, 4806, 4885, 5592, 5010, 5065],
+    "first_token_ms": [5845, 5069, 5146, 4591, 4699, 5205, 4807, 4892],
+    "session_start_hook_ms": [1283, 1264, 1255, 1260, 1310, 1267, 1287, 1321],
+    "user_prompt_hook_ms": [369, 378, 379, 372, 379, 375, 367, 340],
+    "mean_elapsed_ms": 5240.875,
+    "median_elapsed_ms": 5148.5
+  },
+  "treatment_primer_control": {
+    "n": 8,
+    "flag": "--no-ripwire-session-primer",
+    "underlying_environment": "RIPWIRE_METER_ARM=control",
+    "elapsed_ms": [5369, 3627, 4660, 4224, 5163, 4117, 3648, 3990],
+    "first_token_ms": [5152, 3448, 4490, 4060, 4971, 3916, 3484, 3832],
+    "session_start_hook_ms": [134, 144, 138, 136, 141, 140, 136, 129],
+    "user_prompt_hook_ms": [399, 387, 404, 387, 372, 407, 371, 350],
+    "mean_elapsed_ms": 4349.75,
+    "median_elapsed_ms": 4170.5
+  },
+  "paired_result": {
+    "elapsed_deltas_ms_trusted_minus_control": [660, 1605, 648, 582, -278, 1475, 1362, 1075],
+    "mean_delta_ms": 891.125,
+    "median_delta_ms": 867.5,
+    "relative_reduction_percent": 17.0,
+    "exact_two_sided_sign_flip_p": 0.015625,
+    "first_token_mean_delta_ms": 862.625,
+    "session_hook_mean_delta_ms": 1143.625,
+    "verdict": "keep_as_explicit_control"
+  },
+  "suffix_control": {
+    "n": 7,
+    "trusted_elapsed_ms": [2105, 2719, 1633, 2224, 1942, 1455, 2021],
+    "primer_control_elapsed_ms": [1965, 2114, 1818, 2043, 2743, 1562, 1532],
+    "mean_delta_ms_trusted_minus_control": 86.286,
+    "exact_two_sided_sign_flip_p": 0.59375,
+    "interpretation": "The control only changes session-start work; later-turn prompt-hook time remains unchanged."
+  },
+  "microbenchmark": {
+    "operation": "ripwire-codex-route.sh field extraction",
+    "n": 40,
+    "separate_jq_processes_median_ms": 19.316,
+    "combined_jq_process_median_ms": 6.593,
+    "local_saving_ms": 12.723,
+    "interpretation": "Combining the three jq reads is a small local optimization. It does not explain the 1.1 second session hook gap."
+  },
+  "post_change_probe": {
+    "flag": "--no-ripwire-session-primer",
+    "status": "completed",
+    "command_to_result_ms": 2852,
+    "provider_turn_ms": 2828,
+    "first_token_ms": 2703,
+    "session_start_hook_ms": 117,
+    "user_prompt_hook_ms": 410,
+    "observer_trace_truncated": false
+  },
+  "interpretation": [
+    "Measured. The primer control reduces fresh full-turn command time by 891 ms on average, a 17.0 percent paired reduction in this eight-pair probe.",
+    "Measured. The sessionStart hook reduction is stable at about 1.14 seconds per fresh session.",
+    "Measured. Later suffix turns show no reliable reduction because the primer runs only at session start.",
+    "Inferred. The safe optimization is an explicit runner control, not a global profile change. It keeps the other lifecycle hooks active.",
+    "Exploratory. The exact paired sign-flip p value is 0.015625, but the sample uses one model, one repository, one task shape, and eight pairs. Treat it as evidence for this control, not a general product guarantee."
+  ],
+  "limitations": [
+    "The two arms ran in alternating fresh processes, not in a randomized multi-day production sample.",
+    "The primer control is an existing Ripwire control arm. It suppresses guidance context, so task-quality equivalence still needs a tool-using workload.",
+    "The jq microbenchmark measures field extraction only and does not modify the external Ripwire hook."
+  ]
+}

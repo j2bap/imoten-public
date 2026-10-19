@@ -1,0 +1,6 @@
+interface:
+  display_name: "Poteto Mode"
+  short_description: "Parent-first task ownership, scoped independent agents, verified replies, and unslopped prose"
+  default_prompt: "$imoten:poteto-mode"
+policy:
+  allow_implicit_invocation: false

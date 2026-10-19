@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "date": "2026-09-20",
+  "profile": "~/.codex-personal",
+  "model": "gpt-5.6-luna",
+  "model_family": "gpt-5-6",
+  "transport": "app-server",
+  "runner": "codex-primary-session-runner.mjs",
+  "probe": "two sequential turns on one native primary thread",
+  "status": "completed",
+  "startup": {
+    "bootstrap_ms": 126,
+    "session_init_ms": 124,
+    "initialization": {
+      "total_ms": 124,
+      "manager_init_ms": 2,
+      "connect_ms": 35,
+      "thread_start_ms": 87
+    }
+  },
+  "turns": [
+    {
+      "id": "one",
+      "prompt_mode": "full",
+      "status": "completed",
+      "elapsed_ms": 3784,
+      "first_event_ms": 30,
+      "first_token_ms": 3649,
+      "input_tokens": 17500,
+      "cached_input_tokens": 9984,
+      "output_tokens": 43,
+      "reasoning_output_tokens": 34,
+      "timing": {
+        "append_visible_ms": 5,
+        "prepare_ms": 6,
+        "provider_turn_ms": 3784,
+        "provider_first_event_ms": 30,
+        "provider_first_token_ms": 3649,
+        "provider_after_first_token_ms": 135,
+        "opaque_drain_ms": 0,
+        "accept_ms": 5,
+        "finalize_ms": 1,
+        "session_run_ms": 3803,
+        "provider_turn_call_ms": 3785
+      },
+      "runner_timing": {
+        "command_to_result_ms": 3803,
+        "session_run_ms": 3803
+      }
+    },
+    {
+      "id": "two",
+      "prompt_mode": "suffix",
+      "status": "completed",
+      "elapsed_ms": 1893,
+      "first_event_ms": 2,
+      "first_token_ms": 1613,
+      "input_tokens": 17993,
+      "cached_input_tokens": 17152,
+      "output_tokens": 22,
+      "reasoning_output_tokens": 13,
+      "timing": {
+        "append_visible_ms": 1,
+        "prepare_ms": 3,
+        "provider_turn_ms": 1893,
+        "provider_first_event_ms": 2,
+        "provider_first_token_ms": 1613,
+        "provider_after_first_token_ms": 280,
+        "opaque_drain_ms": 0,
+        "accept_ms": 6,
+        "finalize_ms": 2,
+        "session_run_ms": 1905,
+        "provider_turn_call_ms": 1894
+      },
+      "runner_timing": {
+        "command_to_result_ms": 1905,
+        "session_run_ms": 1905
+      }
+    }
+  ],
+  "interpretation": [
+    "Measured. Local preparation, acceptance, finalization, and runner overhead stayed below 20ms per turn.",
+    "Measured. Provider time dominated both turns, with most time before the first token.",
+    "Inferred. The next latency experiment should target provider queue or prompt processing, not ledger writes.",
+    "Directional only. This is one full turn and one suffix turn, not a significance test."
+  ],
+  "limitations": [
+    "The sandboxed launch failed before app-server initialization with process_closed; the same command completed through the approved host path.",
+    "The probe used one task per mode and did not compare a control arm."
+  ]
+}

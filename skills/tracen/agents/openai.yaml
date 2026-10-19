@@ -1,0 +1,6 @@
+interface:
+  display_name: "Tracen React Guard"
+  short_description: "Review every React Effect in a change."
+  default_prompt: "Use $tracen to review this React change before completion."
+policy:
+  allow_implicit_invocation: false

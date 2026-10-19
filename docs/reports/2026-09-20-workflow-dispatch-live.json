@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "date": "2026-09-20",
+  "command": "node skills/setup-pstack/scripts/imoten-workflow-dispatch.mjs --profile personal --root-dir TEMP --cwd REPOSITORY --common-prefix-file tests/fixtures/native-primary-prefix.json --poteto-prompt-file skills/poteto-mode/references/poteto-agent-prompt.md",
+  "profile": "personal",
+  "provider": "native-default",
+  "transport": "native-primary",
+  "model": "gpt-5.6-luna",
+  "model_family": "gpt-5-6",
+  "sandbox": "read-only",
+  "exit_code": 0,
+  "ready": {
+    "poteto_prompt": "loaded",
+    "ripwire_session_primer": "disabled",
+    "steer_live": false,
+    "thread_started": true,
+    "initialization_ms": 157
+  },
+  "result": {
+    "id": "live-dispatch",
+    "status": "completed",
+    "prompt_mode": "full",
+    "assistant_marker": "LIVE_DISPATCH_ACK",
+    "elapsed_ms": 7556,
+    "first_event_ms": 3,
+    "first_token_ms": 7404,
+    "provider_turn_ms": 7556,
+    "event_count": 34,
+    "observer_trace_truncated": false,
+    "input_tokens": 17097,
+    "cached_input_tokens": 16128,
+    "output_tokens": 24,
+    "reasoning_output_tokens": 14
+  },
+  "close": {
+    "id": "live-close",
+    "status": "closed"
+  },
+  "finding": "The provider-aware dispatcher selected the native primary path, loaded the portable Poteto prompt, completed one read-only task, returned the requested marker, and closed cleanly."
+}

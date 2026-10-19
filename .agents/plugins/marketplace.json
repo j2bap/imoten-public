@@ -1,0 +1,20 @@
+{
+  "name": "imoten-local",
+  "interface": {
+    "displayName": "Imoten (Local)"
+  },
+  "plugins": [
+    {
+      "name": "imoten",
+      "source": {
+        "source": "local",
+        "path": "./"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    }
+  ]
+}

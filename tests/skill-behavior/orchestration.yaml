@@ -1,0 +1,27 @@
+schema: pstack-skill-behavior/v1
+authority: parent task only
+cases:
+  - id: parent-first
+    expected: one parent owns design, implementation, verification, and the report for coupled ordinary work
+    proof: the main path has no serial agent handoff
+  - id: read-heavy
+    expected: the parent answers narrow questions directly and uses explorers only for independent angles
+    proof: the parent verifies child evidence and writes the answer
+  - id: write-heavy
+    expected: writers receive exclusive files or isolated execution surfaces before start
+    proof: parent inspects the actual diff and runs authoritative verification
+  - id: panel
+    expected: independent readers use the same evidence and the parent resolves disagreement
+    proof: dissent and unavailable lanes remain visible
+  - id: race
+    expected: candidates write to isolated outputs and the parent selects and verifies a winner
+    proof: no candidate writes another candidate's output
+  - id: nested
+    expected: ordinary work uses one delegation level; standing programs may assign bounded coordinators
+    proof: nested coordination appears only when one session cannot own the work
+  - id: unsafe-fanout
+    expected: writable fanout is refused without exclusive ownership or isolation
+    proof: no child starts
+  - id: ready-lanes
+    expected: classifier.dev classifies candidate lanes, deterministic checks gate them, and at most two ready lanes run before refill
+    proof: low-confidence or unsafe lanes use the sequential-parent fallback and the parent owns synthesis

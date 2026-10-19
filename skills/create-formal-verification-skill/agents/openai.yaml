@@ -1,0 +1,6 @@
+interface:
+  display_name: "Create Formal Verification Skill"
+  short_description: "Formally verify one costly property and leave a skill to recheck it"
+  default_prompt: "Use $create-formal-verification-skill for this request."
+policy:
+  allow_implicit_invocation: false
